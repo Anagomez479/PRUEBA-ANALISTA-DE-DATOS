@@ -64,7 +64,7 @@ CREATE TABLE DETALLE_ORDEN (
 SELECT COUNT(id_orden) AS 'Número total de ordenes' FROM ORDEN;
 
 --2--
-SELECT COUNT(DISTINCT C.cedula) Cantidad_fecha
+```sql SELECT COUNT(DISTINCT C.cedula) Cantidad_fecha
 FROM CLIENTE C
 INNER JOIN ORDEN O ON O.cedula = C.cedula
 WHERE O.fecha_orden BETWEEN '2021-01-01' AND GETDATE();
