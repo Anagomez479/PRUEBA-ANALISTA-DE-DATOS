@@ -60,6 +60,7 @@ CREATE TABLE DETALLE_ORDEN (
 
 
 ## ✅ Desarrollo de cada ejercicio
+## ✅ Fase 1
 ```sql
 --1--
 SELECT COUNT(id_orden) AS 'Número total de ordenes' FROM ORDEN;
@@ -105,6 +106,15 @@ ORDER BY Valor_Total DESC;
 --En esta agregaría los datos del último mes y luego solo para las columnas compatibles realizaría la inserción con la nueva estructura
 
 
+## ✅ Fase 2
+Suponiendo que capt_tot es un indicativo clave de productividad por emepleado, se crea una tabla donde se desglozan los datos de la siguiente manera:
+Capt_tot: se divide el capt_tot por empleado para comparar este resultado con una simulación de costo diario.
+Simulación de costo diario: se multiplica los días trabajados por el costo del día (simulado) y se multi´lica este dato por el porcentaje asignado a cada tipo de candidato.
+Por último se comparan los datos arrojados totales y diarios, evaluando la productividad según el tipo de candidato.
+
+0.0019
+0.0143
+0.0401
 
 
 
