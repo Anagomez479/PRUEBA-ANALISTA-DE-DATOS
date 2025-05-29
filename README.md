@@ -60,11 +60,12 @@ CREATE TABLE DETALLE_ORDEN (
 
 
 ## ✅ Desarrollo de cada ejercicio
+```sql
 --1--
 SELECT COUNT(id_orden) AS 'Número total de ordenes' FROM ORDEN;
 
 --2--
-```sql SELECT COUNT(DISTINCT C.cedula) Cantidad_fecha
+SELECT COUNT(DISTINCT C.cedula) Cantidad_fecha
 FROM CLIENTE C
 INNER JOIN ORDEN O ON O.cedula = C.cedula
 WHERE O.fecha_orden BETWEEN '2021-01-01' AND GETDATE();
@@ -100,8 +101,8 @@ GROUP BY C.cedula, C.nombre, P.nombre_producto
 ORDER BY Valor_Total DESC;
 
 --7--
-Para evitar conflictos por diferencia de dimesiones, crearía una tabla temporal que cargue la nueva columna.
-En esta agregaría los datos del último mes y luego solo para las columnas compatibles realizaría la inserción con la nueva estructura
+--Para evitar conflictos por diferencia de dimesiones, crearía una tabla temporal que cargue la nueva columna.
+--En esta agregaría los datos del último mes y luego solo para las columnas compatibles realizaría la inserción con la nueva estructura
 
 
 
