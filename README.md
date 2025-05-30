@@ -15,7 +15,7 @@ Este repositorio contiene la solución a los ejercicios propuestos como parte de
 ### Fase 1: Extracción y Combinación de Datos
 Se crean las tablas definidas para la realización de la primera fase de la prueba. 
 
-```sql
+
 CREATE DATABASE DATOS
 
 USE DATOS
