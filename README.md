@@ -116,6 +116,17 @@ Por último se comparan los datos arrojados totales y diarios, evaluando la prod
 0.0143
 0.0401
 
+Cargo base                             Capt por empleado       Costo simulado     Capt/Costo
+EJERCUTIVO COMERCIAL                         717.57                37,308,955        0.0000192
+EJERCUTIVO COMERCIAL FIN DE SEMANA           288.12                 2,011,972        0.0001432
+EJERCUTIVO COMERCIAL MEDIO TIEMPO            347.60                   866,713        0.0004010
+
+Según los resultados optenidos se puede ver que el ejecutivo comercial de medio tiempo es el mayor captación por costo tiene siendo este el más productivo por valor pagado según los porcentajes asignados.
+Se suguiere realizar mayor nivel de contratación en este tipo de candidato dado que este representa una mayor productiva que incluso el ejecutivo de tiempo completo el cual tiene gran aporte y valor a nivel general pero menos productividad.
+
+
+
+
 
 
 
