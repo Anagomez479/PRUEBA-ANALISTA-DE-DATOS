@@ -109,21 +109,19 @@ ORDER BY Valor_Total DESC;
 
 ## ✅ Fase 2
 Suponiendo que capt_tot es un indicativo clave de productividad por emepleado, se crea una tabla donde se desglozan los datos de la siguiente manera:
-Capt_tot: se divide el capt_tot por empleado para comparar este resultado con una simulación de costo diario.
-Simulación de costo diario: se multiplica los días trabajados por el costo del día (simulado) y se multi´lica este dato por el porcentaje asignado a cada tipo de candidato.
+Capt_tot: se divide el capt_tot por empleado para comparar este resultado con una simulación de costo diario (Se toma un valor de ejemplo para el costo diario por ejecutivo). 
+Simulación de costo diario: se multiplica los días trabajados por el costo del día (simulado) y se multiplica este dato por el porcentaje asignado a cada tipo de candidato.
 Por último se comparan los datos arrojados totales y diarios, evaluando la productividad según el tipo de candidato.
-
-0.0019
-0.0143
-0.0401
 
 Cargo base                             Capt por empleado       Costo simulado     Capt/Costo
 EJERCUTIVO COMERCIAL                         717.57                37,308,955        0.0000192
 EJERCUTIVO COMERCIAL FIN DE SEMANA           288.12                 2,011,972        0.0001432
 EJERCUTIVO COMERCIAL MEDIO TIEMPO            347.60                   866,713        0.0004010
 
-Según los resultados optenidos se puede ver que el ejecutivo comercial de medio tiempo es el mayor captación por costo tiene siendo este el más productivo por valor pagado según los porcentajes asignados.
+Según los resultados optenidos se puede observar que el ejecutivo comercial de medio tiempo es el de mayor captación por costo,  es el más productivo por valor pagado según los porcentajes asignados.
 Se suguiere realizar mayor nivel de contratación en este tipo de candidato dado que este representa una mayor productiva que incluso el ejecutivo de tiempo completo el cual tiene gran aporte y valor a nivel general pero menos productividad.
+
+
 
 
 
