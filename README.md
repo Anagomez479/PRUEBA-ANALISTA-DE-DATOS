@@ -245,16 +245,3 @@ Se mostrará el aporte que tienen cada tipo de variable según los clusters real
 - Ajustar o capacitar el personal y la contratación en los puntos críticos es clave para mejorar el desempeño entre regiones.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
