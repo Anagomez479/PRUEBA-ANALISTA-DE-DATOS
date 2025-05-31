@@ -1,21 +1,16 @@
-![image](https://github.com/user-attachments/assets/ccd5210f-eb7a-4744-a8c8-311cca1de04e)# PRUEBA-ANALISTA-DE-DATOS
+# PRUEBA-ANALISTA-DE-DATOS
 Repositorio de los resultados a la prueba técnica para analista de datos
-# Evaluación Técnica SQL – ANA MARÍA GÓMEZ OROZCO
+# Evaluación Técnica – ANA MARÍA GÓMEZ OROZCO
 
 ## 🧩 Descripción general
 Este repositorio contiene la solución a los ejercicios propuestos como parte de una prueba técnica.
 
-## 📁 Estructura del repositorio
-- `respuestas.sql`: contiene todos los scripts SQL desarrollados.
-- `respuestas.pdf`: documento con las preguntas y respuestas explicadas (opcional).
-- `presentacion/`: presentación de resultados (PowerPoint o Dashboard).
-- `recursos/`: imágenes de apoyo o diagramas relacionales.
+## ✅ Desarrollo de cada ejercicio
+## ✅ Fase 1
 
-
-### Fase 1: Extracción y Combinación de Datos
 Se crean las tablas definidas para la realización de la primera fase de la prueba. 
 
-
+```sql
 CREATE DATABASE DATOS
 
 USE DATOS
@@ -59,10 +54,6 @@ CREATE TABLE DETALLE_ORDEN (
 	FOREIGN KEY (id_producto) REFERENCES PRODUCTO (id_producto)
 );
 
-
-## ✅ Desarrollo de cada ejercicio
-## ✅ Fase 1
-```sql
 --1--
 SELECT COUNT(id_orden) AS 'Número total de ordenes' FROM ORDEN;
 
@@ -106,12 +97,11 @@ ORDER BY Valor_Total DESC;
 --Para evitar conflictos por diferencia de dimesiones, crearía una tabla temporal que cargue la nueva columna.
 --En esta agregaría los datos del último mes y luego solo para las columnas compatibles realizaría la inserción con la nueva estructura
 
-
 ## ✅ Fase 2
-Suponiendo que capt_tot es un indicativo clave de productividad por emepleado, se crea una tabla donde se desglozan los datos de la siguiente manera:
+Suponiendo que capt_tot es un indicativo clave de productividad por empleado, se crea una tabla donde se desglozan los datos de la siguiente manera:
 Capt_tot: se divide el capt_tot por empleado para comparar este resultado con una simulación de costo diario (Se toma un valor de ejemplo para el costo diario por ejecutivo). 
 Simulación de costo diario: se multiplica los días trabajados por el costo del día (simulado) y se multiplica este dato por el porcentaje asignado a cada tipo de candidato.
-Por último se comparan los datos arrojados totales y diarios, evaluando la productividad según el tipo de candidato.
+Por último se comparan los datos arrojados totales y diarios, evaluando la productividad según el tipo de candidato. (Ver archivo Power BI)
 
 Cargo base                             Capt por empleado       Costo simulado     Capt/Costo
 EJERCUTIVO COMERCIAL                         717.57                37,308,955        0.0000192
@@ -128,15 +118,15 @@ Se crea power BI donde se visualicen de manera más fácil el tipo de empleado, 
 
 #### 1. Metodología
 
-* **Cargue y limpieza de los datos: Se extraen los datos del archivo de Excel entregado, se realizar el análisis de los datos seleccionando las variables numéricas y visualizando sus datos descriptivos, como media, mediana, conteo y demás datos.
-* Se eliminan del modelo las filas con Nan devido a que estas no tenían aportes significativos en los resultados, debido que los valores en cero si podían aportar al modelo se decide conservarlos, estos valores extremos se pretende normalizar con el escalada.
-* Para el escalado de datos se usa un Robust Scale, este tipo de escalado es muy bueno para datos extremos como lo es el cado de valores en 0 comparado con valores altos.
-* Adicional se realiza una revisión de los datos generales con un pairplot de todas las variable, y se grafica de igual manera las variables categorias con su frecuencia, viendo así el aporte que tiene la region y el tipo de negoocio, esto no se realiza en el canal, en esa variable se evidencio que no tenía aporte significativos tomandose como variable categorica y ni como numérica (se hacen las dos pruebas).
+* Cargue y limpieza de los datos: Se extraen los datos del archivo de Excel entregado, se realizar el análisis de los datos seleccionando las variables numéricas y visualizando sus datos descriptivos, como media, mediana, conteo y demás datos.
+* Se eliminan del modelo las filas con Nan debido a que estas no tenían aportes significativos en los resultados, los valores en cero si podían aportar al modelo por ende se decide conservarlos, estos valores extremos se pretende normalizar con el escalado.
+* Para el escalado de datos se usa un Robust Scale, este tipo de escalado es muy bueno para datos extremos como lo son los valores en 0 comparado con valores altos.
+* Adicional se realiza una revisión de los datos generales con un pairplot de todas las variable, y se grafica de igual manera las variables categóricas con su frecuencia, viendo así el aporte que tiene la region y el tipo de negocio, esto no se realiza en el canal, en esa variable se evidenció que no tenía aporte significativos tomandose como variable categorica y ni como numérica (se hacen las dos pruebas). Ver archivo Notebook.
 
 * **Modelo utilizado**: Algoritmo KMeans, se seleccionan 4 cluster, se usa el método del codo para definir este valor.
 
-* **Variables seleccionadas**: Solo variables numéricas normalizadas y no correlacionadas.
-Para la selección de las variables a utilizar se utilizar una matriz de correlación según los resultados arojados se eliminaron las variables que tenían alto nivel de correlación con otro de las varibles, evitando así la multicolinealidad de los datos.
+* **Variables seleccionadas**: Solo variables numéricas normalizadas.
+Para la selección de las variables a utilizar se realiza una matriz de correlación según los resultados arrojados se eliminaron las variables que tenían alto nivel de correlación con otras de las varibles, evitando así la multicolinealidad de los datos.
 
 * **Variables incluidas**:
 
@@ -172,6 +162,8 @@ Para la selección de las variables a utilizar se utilizar una matriz de correla
 
 ## ✅ Fase 4
 
+Tabla cruzada de cluster por region.
+
 region   ALKOSTO  ANTIOQUIA  BOGOTA 1  BOGOTA 2  COSTAS  EJE CAFETERO Y SUR   SANTANDERES BOYACA 
 cluster                                                                       
 0              0          5         4         6       6                   7           3
@@ -179,6 +171,7 @@ cluster
 2              0          4         4         0       0                   0           0
 3              0          6         9        10       9                  11           8
 
+Tabla cruzada de cluster por negocio.
 negocio   A   E
 cluster        
 0         0  31
@@ -203,12 +196,12 @@ Se mostrará el aporte que tienen cada tipo de variable según los clusters real
 **Cluster 3 – “Desempeño Promedio”** (53 registros)
 * Variables con desempeño levemente inferior al promedio en la mayoría de variables.
 * Todos del negocio tipo E. Alta presencia en Eje Cafetero, Bogotá 2 y Santanderes.
-* **Tipo de empleado**: En su mayoría **ejecutivos de tiempo completo**, con baja participación de **medio tiempo y fin de semana**.
+* **Tipo de empleado**: En su mayoría ejecutivos de tiempo completo, con baja participación de medio tiempo y fin de semana.
 
 **Cluster 1 – “Bajo Desempeño”** (49 registros)
 * Peores indicadores en aprobación y monto de créditos, tráfico y aprovechamiento.
-* Dominado por el negocio tipo **A** (37 registros), ubicados principalmente en ALKOSTO.
-* **Tipo de empleado**: Predominan **ejecutivos de tiempo completo**, pero sin lograr buen desempeño.
+* Dominado por el negocio tipo A, ubicados principalmente en ALKOSTO.
+* **Tipo de empleado**: Predominan ejecutivos de tiempo completo, pero sin lograr buen desempeño.
 
 
 #### 2. Acciones Recomendadas
@@ -221,12 +214,12 @@ Se mostrará el aporte que tienen cada tipo de variable según los clusters real
 
 ### Cluster 0 – Buen Desempeño
 - Crear nuevas técnicas para aumentar el aprovechamiento del tráfico.
-- Evaluar al ternativas que puedan mejorar las aprobaciones de créditos.
+- Evaluar alternativas que puedan mejorar las aprobaciones de créditos.
 - Capacitar y acompañar al equipo para mejorar eficiencia en capturas.
 - Aumentar la contratación de ejecutivos de medio tiempo que puedan aumentar la productividad.
 
 ### Cluster 3 – Desempeño Promedio
-- Realizar un enfoque principalmente en los puntos más críticos como lo son capturas, aprobación y contrinución.
+- Realizar un enfoque principalmente en los puntos más críticos como lo son capturas, aprobación y contribución.
 - Evaluar posibles mejoras replicando acciones de los puntos de venta correspondientes al cluster 1. 
 - Explorar ajustes operativos que potencien los resultados sin incrementar costos significativamente.
 
